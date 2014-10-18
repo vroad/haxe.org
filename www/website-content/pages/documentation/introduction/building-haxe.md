@@ -67,10 +67,30 @@ For subsequent compilations it is usually enough to recompile the Haxe sources w
 make -f Makefile.win MSVC=1 haxe
 ```
 
+Building on Windows (MinGW)
+-------
+
+1. Install a Cygwin/MinGW version of OCaml: <http://protz.github.io/ocaml-installer/>
+2. Install MinGW-gcc from MinGW-w64 project: <http://mingw-w64.sourceforge.net/>
+3. Install [GNU make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm) and [GNU CoreUtils for Windows] (http://gnuwin32.sourceforge.net/packages/coreutils.htm) and add GnuWin32/bin to your `PATH` environment variable.
+4. Install [Flexlink](http://alain.frisch.fr/flexdll.html) and add it to your `PATH` environment variable.
+
+Navigate to where the Haxe sources are and build Haxe using:
+
+```
+make -f Makefile.win libs haxe haxelib GCC_LIB=C:\mingw32\i686-w64-mingw32\lib
+```
+
+For subsequent compilations it is usually enough to recompile the Haxe sources without its libraries:
+
+```
+make -f Makefile.win haxe GCC_LIB=C:\mingw32\i686-w64-mingw32\lib
+```
+
 Building on Windows (Cygwin)
 -------
 
-1. Install a Cygwin version of OCaml: <http://protz.github.io/ocaml-installer/>
+1. Install a Cygwin/MinGW version of OCaml: <http://protz.github.io/ocaml-installer/>
 
 	* To build Haxe you only need to choose `OCaml` and `Cygwin` in the install menu.
 	* In the cygwin package selection window, select `mingw64-i686-zlib` in addition to pre-selected packages. This is required to build Haxe.
